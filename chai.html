@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai-tailwind</title>
+    <link rel="stylesheet" href="chai.css" />
+  </head>
+  <body>
+    <div class="hero" style="z-index: 1">
+      <div class="hero-glow"></div>
+
+      <h1><span>Chai</span><br />Tailwind</h1>
+
+      <p class="hero-sub">
+        A lightweight utility-first CSS engine. Write
+        <code
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            color: var(--chai);
+          "
+          >chai-*</code
+        >
+        classes in your HTML — the engine scans, parses, and applies inline
+        styles automatically.
+      </p>
+
+      <div class="hero-code">
+        &lt;div class="<span style="color: var(--chai)"
+          >chai-p-4 chai-bg-blue chai-text-white chai-rounded-lg</span
+        >"&gt;Hello Chai&lt;/div&gt;
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#playground">▶ Try Playground</a>
+        <a class="btn btn-secondary" href="#reference">View Reference</a>
+      </div>
+    </div>
+
+    <hr class="divider" />
+    <section id="how">
+      <h2 class="section-title">Pure JS. Zero dependencies.</h2>
+      <p class="section-desc">
+        ChaiTailwind intercepts classes on page load and converts them to inline
+        styles using a pattern parser — no bundler, no build step.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>DOM Traversal</h3>
+          <p>
+            On DOMContentLoaded, the engine queries all elements and filters
+            those with
+            <code
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                color: var(--chai);
+                font-size: 0.8em;
+              "
+              >chai-*</code
+            >
+            prefixed classes.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Pattern Parsing</h3>
+          <p>
+            Each class is matched against regex patterns. Values are extracted
+            and mapped to CSS properties using lookup tables.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Inline Style Injection</h3>
+          <p>
+            Parsed styles are applied via
+            <code
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                color: var(--chai);
+                font-size: 0.8em;
+              "
+              >element.style</code
+            >, converting kebab-case to camelCase automatically.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Class Cleanup</h3>
+          <p>
+            Original
+            <code
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                color: var(--chai);
+                font-size: 0.8em;
+              "
+              >chai-*</code
+            >
+            classes are removed from the DOM, leaving clean, unstyled markup.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section style="padding-top: 3rem; padding-bottom: 3rem">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-num">80+</div>
+          <div class="stat-label">Utility Classes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">24</div>
+          <div class="stat-label">Named Colors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Dependencies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">&lt;5kb</div>
+          <div class="stat-label">Minified Size</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+    <section id="demo">
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-desc">
+        These elements below are styled entirely using
+        <code
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            color: var(--chai);
+          "
+          >chai-*</code
+        >
+        classes — processed on page load.
+      </p>
+
+      <div class="demo-live">
+        <div class="demo-header">
+          <span class="demo-title">Rendered Output</span>
+          <span class="demo-tag">Styled with chai-*</span>
+        </div>
+        <div class="demo-content">
+          <div class="demo-showcase" id="live-demo-area">
+            <div
+              class="chai-p-6 chai-bg-blue chai-text-white chai-rounded-xl chai-shadow-lg"
+              style="min-width: 180px"
+            >
+              <div class="chai-text-sm chai-opacity-80 chai-mb-2">
+                Card Title
+              </div>
+              <div class="chai-text-2xl chai-font-bold">chai-*</div>
+            </div>
+
+            <div
+              class="chai-p-6 chai-bg-green chai-text-black chai-rounded-xl chai-shadow-lg"
+              style="min-width: 180px"
+            >
+              <div
+                class="chai-text-xs chai-uppercase chai-tracking-wide chai-mb-2"
+              >
+                Status
+              </div>
+              <div class="chai-text-xl chai-font-bold">Active ✓</div>
+            </div>
+
+            <div
+              class="chai-p-6 chai-rounded-xl chai-shadow-lg chai-border chai-border-2"
+              style="
+                min-width: 180px;
+                border-color: var(--chai);
+                background: var(--surface2);
+              "
+            >
+              <div
+                class="chai-text-xs chai-uppercase chai-tracking-wide chai-mb-3"
+                style="color: var(--chai)"
+              >
+                Spacing
+              </div>
+              <div class="chai-flex chai-flex-col chai-gap-2">
+                <div
+                  class="chai-p-2 chai-rounded"
+                  style="
+                    background: rgba(200, 129, 58, 0.2);
+                    font-family: &quot;JetBrains Mono&quot;, monospace;
+                    font-size: 0.75rem;
+                    color: var(--chai-light);
+                  "
+                >
+                  chai-p-2 → 8px
+                </div>
+                <div
+                  class="chai-p-3 chai-rounded"
+                  style="
+                    background: rgba(200, 129, 58, 0.2);
+                    font-family: &quot;JetBrains Mono&quot;, monospace;
+                    font-size: 0.75rem;
+                    color: var(--chai-light);
+                  "
+                >
+                  chai-p-3 → 12px
+                </div>
+                <div
+                  class="chai-p-4 chai-rounded"
+                  style="
+                    background: rgba(200, 129, 58, 0.2);
+                    font-family: &quot;JetBrains Mono&quot;, monospace;
+                    font-size: 0.75rem;
+                    color: var(--chai-light);
+                  "
+                >
+                  chai-p-4 → 16px
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="chai-p-6 chai-bg-red chai-text-white chai-rounded-full chai-shadow-xl chai-flex chai-items-center chai-justify-center"
+              style="width: 140px; height: 140px; text-align: center"
+            >
+              <div>
+                <div class="chai-text-3xl chai-font-black">☕</div>
+                <div
+                  class="chai-text-xs chai-mt-2 chai-font-semibold chai-uppercase chai-tracking-wide"
+                >
+                  Chai
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="reference">
+      <h2 class="section-title">All Utilities</h2>
+      <p class="section-desc">
+        A full reference of supported
+        <code
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            color: var(--chai);
+          "
+          >chai-*</code
+        >
+        class patterns.
+      </p>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-card-header">Spacing</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-p-{n}</td>
+              <td>padding: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-px-{n}</td>
+              <td>padding X axis</td>
+            </tr>
+            <tr>
+              <td>chai-py-{n}</td>
+              <td>padding Y axis</td>
+            </tr>
+            <tr>
+              <td>chai-pt/pr/pb/pl-{n}</td>
+              <td>padding per side</td>
+            </tr>
+            <tr>
+              <td>chai-m-{n}</td>
+              <td>margin: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-mx-auto</td>
+              <td>margin: 0 auto</td>
+            </tr>
+            <tr>
+              <td>chai-mt/mr/mb/ml-{n}</td>
+              <td>margin per side</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">Colors</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-bg-{color}</td>
+              <td>background-color</td>
+            </tr>
+            <tr>
+              <td>chai-bg-{color}-{shade}</td>
+              <td>e.g. chai-bg-blue-500</td>
+            </tr>
+            <tr>
+              <td>chai-text-{color}</td>
+              <td>color</td>
+            </tr>
+            <tr>
+              <td>chai-border-{color}</td>
+              <td>border-color</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="color: var(--text3); font-size: 0.75rem">
+                red, blue, green, yellow, orange,<br />purple, pink, teal,
+                indigo, cyan…
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">Typography</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-text-{size}</td>
+              <td>xs → 6xl</td>
+            </tr>
+            <tr>
+              <td>chai-font-{weight}</td>
+              <td>thin → black</td>
+            </tr>
+            <tr>
+              <td>chai-text-center</td>
+              <td>text-align: center</td>
+            </tr>
+            <tr>
+              <td>chai-uppercase</td>
+              <td>text-transform</td>
+            </tr>
+            <tr>
+              <td>chai-leading-{val}</td>
+              <td>line-height</td>
+            </tr>
+            <tr>
+              <td>chai-tracking-{val}</td>
+              <td>letter-spacing</td>
+            </tr>
+            <tr>
+              <td>chai-truncate</td>
+              <td>text overflow ellipsis</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">Layout & Flex</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-flex</td>
+              <td>display: flex</td>
+            </tr>
+            <tr>
+              <td>chai-flex-col</td>
+              <td>flex-direction: column</td>
+            </tr>
+            <tr>
+              <td>chai-items-center</td>
+              <td>align-items: center</td>
+            </tr>
+            <tr>
+              <td>chai-justify-between</td>
+              <td>justify-content</td>
+            </tr>
+            <tr>
+              <td>chai-gap-{n}</td>
+              <td>gap: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-grid-cols-{n}</td>
+              <td>grid columns</td>
+            </tr>
+            <tr>
+              <td>chai-hidden</td>
+              <td>display: none</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">Borders & Radius</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-border</td>
+              <td>1px solid border</td>
+            </tr>
+            <tr>
+              <td>chai-border-{n}</td>
+              <td>border-width: {n}px</td>
+            </tr>
+            <tr>
+              <td>chai-border-dashed</td>
+              <td>border-style: dashed</td>
+            </tr>
+            <tr>
+              <td>chai-rounded</td>
+              <td>border-radius: 0.25rem</td>
+            </tr>
+            <tr>
+              <td>chai-rounded-lg</td>
+              <td>border-radius: 0.5rem</td>
+            </tr>
+            <tr>
+              <td>chai-rounded-full</td>
+              <td>border-radius: 9999px</td>
+            </tr>
+            <tr>
+              <td>chai-shadow-{sz}</td>
+              <td>sm / md / lg / xl / 2xl</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">Sizing & Position</div>
+          <table class="ref-table">
+            <tr>
+              <td>chai-w-{n}</td>
+              <td>width: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-w-full</td>
+              <td>width: 100%</td>
+            </tr>
+            <tr>
+              <td>chai-h-{n}</td>
+              <td>height: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-relative</td>
+              <td>position: relative</td>
+            </tr>
+            <tr>
+              <td>chai-absolute</td>
+              <td>position: absolute</td>
+            </tr>
+            <tr>
+              <td>chai-top-{n}</td>
+              <td>top: {n*4}px</td>
+            </tr>
+            <tr>
+              <td>chai-opacity-{n}</td>
+              <td>opacity: 0–100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="playground">
+      <h2 class="section-title">Build & Preview</h2>
+      <p class="section-desc">
+        Write HTML with
+        <code
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            color: var(--chai);
+          "
+          >chai-*</code
+        >
+        classes and see them rendered live.
+      </p>
+
+      <div class="playground-controls" style="margin-top: 1.5rem">
+        <button class="run-btn" onclick="runPlayground()">▶ Run</button>
+        <button class="preset-btn" onclick="loadPreset('card')">Card</button>
+        <button class="preset-btn" onclick="loadPreset('button')">
+          Buttons
+        </button>
+        <button class="preset-btn" onclick="loadPreset('grid')">Grid</button>
+        <button class="preset-btn" onclick="loadPreset('navbar')">
+          Navbar
+        </button>
+        <button class="preset-btn" onclick="copyCode()">⎘ Copy</button>
+      </div>
+
+      <div class="playground-wrap">
+        <div class="playground-panel">
+          <div class="panel-header">
+            <div class="panel-dots">
+              <span class="dot-r"></span>
+              <span class="dot-y"></span>
+              <span class="dot-g"></span>
+            </div>
+            <span>index.html</span>
+            <span></span>
+          </div>
+          <textarea
+            id="html-input"
+            spellcheck="false"
+            placeholder="Type chai-* HTML here..."
+          ></textarea>
+        </div>
+
+        <div class="playground-panel">
+          <div class="panel-header">
+            <div class="panel-dots">
+              <span class="dot-r"></span>
+              <span class="dot-y"></span>
+              <span class="dot-g"></span>
+            </div>
+            <span>preview</span>
+            <span></span>
+          </div>
+          <iframe id="preview-frame" sandbox="allow-scripts"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+    <section id="usage">
+      <h2 class="section-title">Now use it.</h2>
+      <div
+        style="
+          margin-top: 2rem;
+          background: var(--code-bg);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 1.5rem;
+          overflow-x: auto;
+        "
+      >
+        <pre
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.85rem;
+            color: var(--text2);
+            line-height: 1.8;
+          "
+<span style="color:var(--chai-light)">&lt;div</span> <span style="color:var(--chai)">class</span>=<span style="color:var(--green)">"chai-p-6 chai-bg-blue chai-text-white chai-rounded-xl"</span><span style="color:var(--chai-light)">&gt;</span>
+  <span style="color:var(--chai-light)">&lt;h1</span> <span style="color:var(--chai)">class</span>=<span style="color:var(--green)">"chai-text-2xl chai-font-bold"</span><span style="color:var(--chai-light)">&gt;</span>Hello, ChaiTailwind!<span style="color:var(--chai-light)">&lt;/h1&gt;</span>
+<span style="color:var(--chai-light)">&lt;/div&gt;</span>
+<span style="color:var(--chai-light)">&lt;script</span> <span style="color:var(--chai)">src</span>=<span style="color:var(--green)">"chai.js"</span><span style="color:var(--chai-light)">&gt;&lt;/script&gt;</span></pre>
+      </div>
+    </section>
+    <footer>Built with ☕</footer>
+    <div class="toast" id="toast"></div>
+    <script src="chai.js"></script>
+  </body>
+</html>
